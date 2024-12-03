@@ -1,0 +1,151 @@
+---
+title: "SOK-2009 Mappe 3"
+subtitle: "SOK-2009 Økonomi, statistikk og programmering | 2024"
+date-format: "DD-MM-YYYY"
+author: "Kandidatnummer 17"
+format: pdf
+echo: false
+toc: true
+toc-title: "Innholdsliste"
+warning: false
+---
+
+```{r Start up, include=FALSE}
+# Start up #####
+rm(list = ls()) # Tommer listen
+Sys.setlocale(locale='no_NB.utf8') # Setter språk til norsk
+
+options(scipen=10) # writes 10 scipens before scientific script
+options(digits=10) # writes up to 10 digits
+
+# loading packages
+library(tidyverse)
+library(gt)
+library(mosaic)
+
+tillit_data <- load(url("https://github.com/uit-sok-2009-h24-v3/uit-sok-2009-h24-v3.github.io/raw/refs/heads/main/tillit_data.RData"))
+
+```
+
+# Oppgave 1: Tillit mellom regionene
+
+**Viktig** For oppgavene forventes det at du tar ansvar for hele analyseprosessen – fra klargjøring og filtrering av data, visualisering, og hypoteseformulering, til gjennomføring av tester og diskusjon av resultatene. Dette gir deg muligheten til å anvende statistiske metoder og verktøy for å svare på realistiske samfunnsspørsmål om tillit i Norge.
+
+#### Del 1: Nordlendinger stoler på hverandre?
+
+**Spørsmål:**
+
+Undersøk om det er grunnlag for påstanden om at nordlendinger er mer tillitsfulle enn resten av landet. Bruk dataene til å teste denne påstanden, og vurder om resultatene dine støtter utsagnet.
+
+**Svar:**
+
+```{r}
+tillit_data <- as_tibble(tillit_data_sub)
+
+nord <- tillit_data %>% filter(landsdel == "Nord-Norge") %>% pull(sosial_tillit)
+resten <- tillit_data %>% filter(landsdel != "Nord-Norge") %>% pull(sosial_tillit)
+
+#Beregner gjennomsnitt
+mean_nord <- mean(nord, na.rm = TRUE)
+mean_resten <- mean(resten, na.rm = TRUE)
+
+#Utfører ensidig t-test
+t_test <- t.test(nord, resten, alternative = "greater", var.equal = FALSE)
+
+#Viser gjennomsnitt 
+cat("Gjennomsnitt Nord-Norge:", mean_nord, "\n")
+cat("Gjennomsnitt Resten av landet:", mean_resten, "\n")
+
+cat("T-test resultater:\n")
+cat("T-verdi:", t_test$statistic, "\n")
+cat("p-verdi:", t_test$p.value, "\n")
+cat("Frihetsgrader:", t_test$parameter, "\n")
+cat("Konfidensintervall:", t_test$conf.int, "\n")
+```
+
+For å undersøke påstanden om at nordlendinger er mer tillitsfulle enn resten av landet, gjennomførte jeg en analyse basert på datasettet som inneholder variabler for sosial tillit og geografisk tilhørighet, som du kan se en rekke resultater fra ovenfor.
+
+Først klargjorde jeg dataene ved å gruppere observasjonene i to kategorier: én for Nord-Norge og én for resten av landet. Gjennomsnittlig sosial tillit ble beregnet for hver av disse gruppene. Resultatene viser at gjennomsnittet for Nord-Norge var **6,97**, mens gjennomsnittet for resten av landet var **7,09**.
+
+For å teste om denne forskjellen var statistisk signifikant, gjennomførte jeg en ensidig t-test. Nullhypotesen ($H_0$) var at nordlendinger ikke har høyere sosial tillit enn resten av landet ($\mu_{\text{Nord}} \leq \mu_{\text{Resten}}$), mens den alternative hypotesen ($H_1$) var at nordlendinger har høyere sosial tillit ($\mu_{\text{Nord}} > \mu_{\text{Resten}}$).
+
+T-testen resulterte i følgende:
+
+-   **T-verdi:** $-1,57$
+-   **p-verdi:** $0,942$
+-   **Konfidensintervall:** $[-0,25, \infty)$
+
+Siden p-verdien er betydelig høyere enn signifikansnivået ($\alpha = 0,05$), forkaster jeg nullhypotesen. Videre viser konfidensintervallet for forskjellen mellom gjennomsnittene at det ikke finnes sterk evidens for at tilliten i Nord-Norge er høyere enn i resten av landet.
+
+Resultatene indikerer dermed at påstanden om at nordlendinger er mer tillitsfulle enn resten av landet ikke finner støtte i dataene. Tvert imot viser analysen en liten, men ikke signifikant, tendens til at sosial tillit er lavere i Nord-Norge sammenlignet med resten av landet.
+
+#### Del 2:
+
+**Spørsmål:**
+
+Undersøk om noen regioner har et tillitsnivå som skiller seg signifikant fra resten av landet. Gjennomfør parvise tester mellom hver region og de øvrige regionene, og anvend en passende korreksjon for multiple tester. Vurder om funnene dine indikerer spesifikke regioner med høyere eller lavere tillit enn gjennomsnittet.
+
+**Svar:**
+
+```{r}
+# Beregner gjennomsnittlig sosial tillit per region
+gjennomsnitt_per_region <- tillit_data %>%
+  group_by(landsdel) %>%
+  summarize(mean_tillit = mean(sosial_tillit, na.rm = TRUE))
+
+print(gjennomsnitt_per_region)
+
+# Utfører parvise tester mellom hver region og resten av landet
+resultater <- list()
+alle_regioner <- unique(tillit_data$landsdel)
+
+for (region in alle_regioner) {
+  # Splitt data i region og resten
+  gruppe_region <- tillit_data %>% filter(landsdel == region) %>% pull(sosial_tillit)
+  gruppe_resten <- tillit_data %>% filter(landsdel != region) %>% pull(sosial_tillit)
+  
+  # Utfør t-test
+  t_resultat <- t.test(gruppe_region, gruppe_resten, var.equal = FALSE)
+  
+  # Lagre resultater
+  resultater[[region]] <- list(
+    mean_region = mean(gruppe_region, na.rm = TRUE),
+    mean_resten = mean(gruppe_resten, na.rm = TRUE),
+    p_value = t_resultat$p.value,
+    t_value = t_resultat$statistic
+  )
+}
+
+# Bygging av resultat_df på nytt med korrekt oppdeling
+resultat_df_clean <- do.call(rbind, lapply(names(resultater), function(region) {
+  data.frame(
+    region = region,
+    mean_region = resultater[[region]]$mean_region,
+    mean_resten = resultater[[region]]$mean_resten,
+    p_value = resultater[[region]]$p_value,
+    t_value = resultater[[region]]$t_value
+  )
+})) %>% as_tibble()
+
+# Korriger for multiple tester med Bonferroni
+resultat_df_clean <- resultat_df_clean %>%
+  mutate(p_value_corrected = p.adjust(p_value, method = "bonferroni"))
+
+# Sjekk resultatene
+print(resultat_df_clean)
+
+
+# Visualisering av resultatene
+library(ggplot2)
+ggplot(resultat_df_clean, aes(x = region, y = mean_region)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  geom_errorbar(aes(ymin = mean_region - 0.1, ymax = mean_region + 0.1), width = 0.2) +
+  labs(
+    title = "Gjennomsnittlig sosial tillit per region",
+    x = "Region",
+    y = "Gjennomsnittlig sosial tillit"
+  ) +
+  theme_minimal()
+
+```
+

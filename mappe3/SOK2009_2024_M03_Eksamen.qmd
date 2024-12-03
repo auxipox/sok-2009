@@ -1,0 +1,269 @@
+---
+format: pdf
+editor: visual
+---
+
+![](images/UiT%20logo.png)
+
+# Fakultet for biovitenskap, fiskeri og økonomi
+
+### Mappe oppgave i Sok-2009 Økonomi, statistikk og programmering
+
+-   **Tidspunkt for utlevering:** onsdag 13. november 14:00
+
+-   **Tidspunkt for innlevering:** onsdag 04. desember 14:00
+
+-   **Kursansvarlig:** Eirik Eriksen Heen (eirik.e.heen\@uit.no)
+
+-   **Antall sider (inkludert denne forsiden):** 10 sider
+
+-   **Vekting av spørsmålene eller annen informasjon:** Oppgave 1 teller 20%, oppgave 2 teller 20% og oppgave 3 teller 20% og oppgave 4 teller 40%.
+
+-   **Viktig informasjon om sitering og plagiering:**
+
+    -   Dette er en individuell eksamen så den skriftlige delen skal besvares uten samarbeid med andre. Besvarelser som er lik blir betraktet som juks.
+
+    -   Alle hjelpemidler er tillatt (egne notater, pdf'er fra forelesningene, lærebøker, internett etc.).
+
+    -   Alle eksamener som blir levert i WISEflow blir automatisk sjekket for plagiat. Sitater fra nettsider, kilder eller litteratur skal ha en referanse. Det samme gjelder egne tidligere besvarelser og medstudenters tidligere besvarelser.
+
+-   **Viktig informasjon om innlevering:** NB! Husk å kontrollere at riktig besvarelse er levert. Ta kontakt med supporttelefonendersom du skulle få problemer. Ikke forlat køen selv om du opplever lang ventetid.
+
+{{< pagebreak >}}
+
+# Informasjon om oppgaven
+
+Vennligst legg merke til følgende angående akademisk integritet og personlig opptreden i løpet av denne eksamenen. Du skal levere eget, selvstendig arbeid, og dette arbeidet er grunnlaget for din karakter i faget. I din eksamen har du det etiske ansvaret for å identifisere kildebruken, hvis noen, for arbeidet du leverer. Omfattende bruk av kilder uten kildehenvisning i en besvarelse er å regne som eksamensfusk. Eksempler på eksamensfusk kan inkludere, men er ikke nødvendigvis begrenset til:
+
+-   Plagiering; omfattende bruk av kilder uten kildehenvisning.
+
+-   Innlevering av et arbeid som ikke er ditt eget. Dette inkluderer AI-besvarelser.
+
+-   Tyveri eller uautorisert bruk av arbeidet til en medstudent.
+
+-   Besvarelse som er lik besvarelsen til en medstudent.
+
+Det er tillatt å diskuterer oppgaven og framgangsmåter for å løse dem med dine medstudenter.
+
+## Innlevering
+
+Husk at din innlevering må inneholde to filer: en PDF med besvarelsen og en kodefil i Quarto, R Markdown, eller VScode-format som inneholder all koden du brukte til analysen.
+
+### Besvarelses fil
+
+Denne filen skal være en pdf som inneholder besvarelsen din. Bruk gjerne [Quarto](https://quarto.org/) eller R Markdown i RStudio som plattform. I pdf'en skal dere presenterer oppgaven, hvordan dere løser den og hvorfor. Dere skal presentere output fra tester og/eller figurer. På grunn av plagiatkontroll er det ikke mulig å levere denne oppgaven i html format.
+
+I denne delen vil vi se at du kan besvare de spørsmål som blir gitt, og presentere dem på en fin måte.
+
+### Kode fil
+
+I kode filen skal du levere ditt Quarto, R Markdown eller VScode fil som du har brukt til å lage alle din besvarelser til din "besvarelses fil".
+
+I denne delen vil vi se at du kan skrive nødvendig kode for å lage gode besvarelser.
+
+## Evaluering
+
+Du vil bli evaluert basert på følgende kriterier:
+
+**1. Datapreparering og filtrering:**
+
+-   Evne til å identifisere og fjerne irrelevante eller manglende verdier (NA) slik at dataene er klare for analyse.
+
+-   Dokumentasjon av valg og metodiske vurderinger ved klargjøring av data.
+
+**2. Bruk av relevante metoder og analyser:**
+
+-   Korrekt valg av statistiske metoder og analyseverktøy for å besvare oppgavene.
+
+-   Begrunnelse av metodene som er valgt, og hvordan de bidrar til å svare på problemstillingen.
+
+**3. Hypoteseformulering og testing:**
+
+-   Tydelig formulering av null- og alternativhypoteser der det er relevant.
+
+-   Korrekt gjennomføring av hypotesetesting, inkludert bruk av korreksjoner for multiple tester dersom dette er relevant.
+
+-   Konsistent rapportering av resultater fra tester, inkludert nødvendige detaljer for tolkning.
+
+**4. Tolkning og diskusjon:**
+
+-   Presis tolkning av analysens resultater med en forklaring av hva funnene betyr i konteksten av problemstillingen.
+
+-   Diskusjon av resultatene, inkludert refleksjoner over hvorvidt resultatene gir mening eller virker logiske i lys av eksisterende kunnskap og forståelse.
+
+-   Kritisk vurdering av analysens styrker og svakheter samt hvordan resultatene kan tolkes i lys av disse.
+
+**5. Kodekvalitet og presentasjon:**
+
+-   Strukturert og lesbar kode som gjør analysen enkel å følge.
+
+-   Korrekt og effektiv bruk av visualiseringer til støtte for analysen, med tydelige og informative figurer der dette er relevant.
+
+**6. Bruk av visualiseringer:**
+
+-   Valg av passende diagrammer og visualiseringer for å representere data og resultater.
+
+-   Korrekt merking av akser og bruk av beskrivende titler på grafer og tabeller for å sikre klar kommunikasjon.
+
+**7. Presentasjon av estimater og inferens:**
+
+-   Nøyaktig fremstilling av estimater og inferensresultater, inkludert eventuell bruk av konfidensintervaller eller p-verdier.
+
+-   Kritisk refleksjon rundt resultatene og hvordan de bidrar til å besvare oppgavene på en meningsfull måte.
+
+**8. Kritisk refleksjon:**
+
+-   Evne til å reflektere over metodiske valg og hvordan de påvirker analysen.
+
+-   Sammenligning av modeller og resultater der det er relevant, med vurdering av forklaringskraft og modellens nøyaktighet (for eksempel ved bruk av MSE i Oppgave 4).
+
+-   Diskusjon rundt hvorfor én modell kan ha bedre forklaringskraft enn en annen, og refleksjoner rundt valgte variablers påvirkning på resultatene.
+
+## Datasett: Norsk Medborgerpanel
+
+I denne eksamenen skal dere bruke data fra Norsk Medborgerpanel. Medborgerpanelet er en internettbasert plattform som kartlegger norske borgeres holdninger og hvordan disse endrer seg innenfor samfunn og politikk. Panelet rekrutterer deltakere tilfeldig fra Folkeregisteret og oppfordrer dem til å delta over flere runder, noe som gjør det mulig å følge holdningsendringer i befolkningen over tid. Universitetet i Bergen er eier og behandlingsansvarlig for Medborgerpanelet, mens ideas2evidence står for den tekniske gjennomføringen, og Norsk samfunnsvitenskapelig datatjeneste (NSD) lagrer og videreformidler dataene. Siden 2017 har undersøkelsene blitt gjennomført tre ganger i året, og runde 26 ble utført i februar og mars 2023.
+
+Runde 26 inkluderte også et samarbeid, "KODEM Light," som innhentet holdningsdata fra både befolkningen, politikere og ansatte i offentlig forvaltning. Dette gir unike muligheter til å utforske sammenhenger mellom ulike samfunnsgrupper. Utvalget består av norske borgere over 18 år, som alle er tilfeldig trukket fra Folkeregisteret. For å sikre at utvalget representerer befolkningen best mulig, brukes vekting basert på alder, kjønn, geografisk tilhørighet og utdanningsnivå. Vektene kompenserer for eventuell over- eller underrepresentasjon i utvalget.
+
+Mer detaljert dokumentasjon for Norsk Medborgerpanel runde 26 finner dere [her](https://org.uib.no/medborgernotat/kodeb%C3%B8ker/Kodebok%20-%20NMP%20runde%2026%20-%20no.html).
+
+### Slik henter du datasettet
+
+Datasettet kan dere hente på linken under via GitHub eller på Canvas i mappen under eksamen eller på Wiseflow.
+
+Dere kan også laste ned datasette ved å kjøre koden under.
+
+```{r}
+tillit_data <- load(url("https://github.com/uit-sok-2009-h24-v3/uit-sok-2009-h24-v3.github.io/raw/refs/heads/main/tillit_data.RData"))
+```
+
+### Tillit som samfunnsverdi: Hvorfor det kalles "Nordens gull"
+
+Tillit er en grunnleggende faktor i et samfunns funksjon og utvikling. I Norden, hvor nivået av sosial og institusjonell tillit tradisjonelt har vært høyt, er tillit blitt en sentral verdi – så sentral at den omtales som "Nordens gull" (Svendsen & Svendsen, 2016). Høy tillit har vist seg å ha en positiv sammenheng med økonomisk vekst, sosial stabilitet og effektiv styring (Rothstein & Uslaner, 2005). Når folk har tillit til hverandre og til offentlige institusjoner, reduseres behovet for strenge kontrollsystemer og byråkrati, noe som i sin tur kan effektivisere både offentlig og privat sektor. I samfunn med høy tillit er det også større samarbeid mellom enkeltindivider og institusjoner, og færre ressurser går til unødvendige konflikter og overvåkning (Putnam, 2000).
+
+Høy tillit i samfunnet bidrar til redusert korrupsjon og skaper et miljø hvor borgerne føler seg tryggere og mer inkludert. I et samfunn som Norge, hvor den sosiale kontrakten er bygget på en kombinasjon av velferd og likhet, gjør tillit at innbyggerne er villige til å støtte omfordeling av ressurser og velferdstiltak (Larsen, 2013). Tillit fremmer også innovasjon og økonomisk aktivitet ved å redusere transaksjonskostnader og fremme en større investeringsvilje i samfunnet. Studier har også vist at høytillitssamfunn har høyere livskvalitet og lykkefølelse (Helliwell et al., 2014), noe som gjør tillit til en uvurderlig ressurs i et bærekraftig samfunn.
+
+**Referanser:**
+
+-   Helliwell, J. F., Huang, H., & Wang, S. (2014). *Social Capital and Well-being in Times of Crisis*. Journal of Happiness Studies.
+
+-   Larsen, C. A. (2013). *The Rise and Fall of Social Cohesion: The Construction and De-construction of Social Trust in the US, UK, Sweden and Denmark*. Oxford University Press.
+
+-   Putnam, R. D. (2000). *Bowling Alone: The Collapse and Revival of American Community*. Simon and Schuster.
+
+-   Rothstein, B., & Uslaner, E. M. (2005). *All for All: Equality, Corruption, and Social Trust*. World Politics.
+
+-   Svendsen, G. T., & Svendsen, G. L. H. (2016). *Nordic Trust: The Distinctiveness of the Nordic Model*.
+
+{{< pagebreak >}}
+
+# Dokumentasjon av variablene
+
+I denne eksamenen skal dere bruke et utvalg av variabler fra Norsk Medborgerpanel. For enkelhets skyld skal vi se variablene for sosial tillit, inntekt, politisk orientering og alder som **numeriske** eller **forholdstall**. Nedenfor er en oversikt over variablene dere vil jobbe med og en kort beskrivelse av hver:
+
+1.  **sivil_status** (`r26_bgciv`): Respondentens sivilstatus (singel, gift, enke/enkemann, osv.).
+
+2.  **bosted** (`r26k2_bgurb`): Type bosted (storby, forstad, bygdesentrum, osv.).
+
+3.  **antall_barn** (`r26k2_bgchi`): Antall barn respondenten har (0, 1, 2, osv.).
+
+4.  **har_barn**: Indikator for om respondenten har barn eller ikke.
+
+5.  **kjonn** (`r26P1`): Respondentens kjønn (mann/kvinne).
+
+6.  **landsdel** (`r26P2`): Geografisk region i Norge (Oslo, Østlandet, Nord-Norge, osv.).
+
+7.  **utdannelse** (`r26P4_1`): Høyeste fullførte utdanningsnivå (grunnskole, videregående, universitet/høgskole).
+
+8.  **alder**: Alder beregnet i år (basert på fødselsår).
+
+9.  **fodselar** (`r26P5_1`): Fødselsår i intervaller (f.eks. 1939 eller tidligere, 1940-1949, osv.).
+
+10. **interess_i_politikk** (`r26_pcpin`): Grad av interesse for politikk (svært interessert, noe interessert, ikke interessert, osv.).
+
+11. **sosial_tillit** (`r26_pccoo`): Måler respondentens generelle tillit til andre mennesker.
+
+12. **livs_tilfredshet** (`r26_pcsal`): Grad av tilfredshet med livet (svært tilfreds, noe tilfreds, ikke tilfreds, osv.).
+
+13. **endring_i_trygghet** (`r26_pcsaf`): Oppfattet endring i personlig trygghet over tid (mye tryggere, mer utrygg, osv.).
+
+14. **tillit_til_politikere** (`r26_pccop`): Tillit til politikere (i stor grad, liten grad, ikke i det hele tatt, osv.).
+
+15. **tillit_til_media** (`r26_pccom`): Tillit til media (i stor grad, liten grad, ikke i det hele tatt, osv.).
+
+16. **inntekt** (`r26k2_bginc`): Husholdningens samlede inntekt, oppgitt som tallverdi.
+
+17. **politisk_orientering** (`r26k2_bglrs`): Politisk orientering på en skala fra 0 (venstre) til 10 (høyre).
+
+{{< pagebreak >}}
+
+```{r Start up, include=FALSE}
+# Start up #####
+rm(list = ls()) # Tommer listen
+Sys.setlocale(locale='no_NB.utf8') # Setter språk til norsk
+
+options(scipen=10) # writes 10 scipens before scientific script
+options(digits=10) # writes up to 10 digits
+
+# loading packages
+library(tidyverse)
+library(gt)
+library(mosaic)
+
+```
+
+# Oppgave 1: Tillit mellom regionene
+
+**Viktig** For oppgavene forventes det at du tar ansvar for hele analyseprosessen – fra klargjøring og filtrering av data, visualisering, og hypoteseformulering, til gjennomføring av tester og diskusjon av resultatene. Dette gir deg muligheten til å anvende statistiske metoder og verktøy for å svare på realistiske samfunnsspørsmål om tillit i Norge.
+
+#### Del 1: Nordlendinger stoler på hverandre?
+
+Undersøk om det er grunnlag for påstanden om at nordlendinger er mer tillitsfulle enn resten av landet. Bruk dataene til å teste denne påstanden, og vurder om resultatene dine støtter utsagnet.
+
+#### Del 2: Er det andre regioner som skiller seg ut?
+
+Undersøk om noen regioner har et tillitsnivå som skiller seg signifikant fra resten av landet. Gjennomfør parvise tester mellom hver region og de øvrige regionene, og anvend en passende korreksjon for multiple tester. Vurder om funnene dine indikerer spesifikke regioner med høyere eller lavere tillit enn gjennomsnittet.
+
+#### Del 3: Hvorfor korrigere for multiple tester?
+
+Reflekter over hvorfor det er nødvendig å korrigere for multiple tester når man gjennomfører flere parvise sammenligninger på samme datasett. Diskuter hva som kan være konsekvensene av å ikke korrigere, og hvordan en slik korreksjon påvirker tolkningen av resultatene.
+
+{{< pagebreak >}}
+
+# Oppgave 2: Sammenheng mellom ulike former for tillit
+
+#### Del 1: Parvise sammenhenger mellom ulike former for tillit
+
+Undersøk hvordan sosial tillit henger sammen med tillit til politikere og tillit til media. Analyser parvise sammenhenger mellom sosial tillit og hver av de to andre tillitsvariablene. Visualiser disse sammenhengene for å få en tydelig fremstilling, og utfør en statistisk test for å vurdere om det er en signifikant sammenheng mellom sosial tillit og tillit til politikere og mellom sosial tillit og tillit til media.
+
+Du kan omkode tillit til politikere og tillit til media som numeriske variabler hvis dette gjør analysen mer oversiktlig. Basert på analysen, vurder hva sammenhengene (eller mangel på sammenheng) kan indikere om forholdet mellom sosial tillit og tillit til politikere og media i befolkningen.
+
+#### Del 2: Regresjonsanalyse med interaksjonseffekt
+
+Utfør en regresjonsanalyse der sosial tillit er den avhengige variabelen, mens tillit til politikere og tillit til media er uavhengige variabler. Inkluder en interaksjonseffekt mellom tillit til politikere og tillit til media for å undersøke om en høyere verdi på én av disse variablene påvirker effekten av den andre på sosial tillit. Tolk koeffisientene og interaksjonseffekten, og diskuter hvordan nivået på sosial tillit kan påvirkes av nivåene på tillit til politikere og tillit til media. Reflekter over hva funnene dine kan indikere om de mulige relasjonene mellom sosial tillit og de to andre tillitsformene.
+
+{{< pagebreak >}}
+
+# Oppgave 3: Sosial Tillit og Demografi
+
+#### Del 1: Hypotesetesting
+
+Undersøk hvordan sosial tillit varierer med demografiske faktorer ved først å teste om det er en forskjell i sosial tillit mellom menn og kvinner. Formuler en passende nullhypotese og gjennomfør en t-test for å vurdere forskjellen. Presentér testresultatene og konkluder om det er signifikante forskjeller i sosial tillit basert på kjønn.
+
+I tillegg skal du undersøke om sosial tillit varierer mellom ulike sivilstatusgrupper (f.eks. singel, gift, osv.) ved hjelp av en ANOVA. Beskriv kort hvilke resultater du får, og vurder hvilke faktorer som ser ut til å påvirke sosial tillit mest basert på denne analysen.
+
+#### Del 2: Regresjonsanalyse
+
+Utfør deretter en regresjonsanalyse der sosial tillit er avhengig variabel, og alder, kjønn, og utdannelse fungerer som uavhengige variabler. Analyser resultatene og diskuter hvilke demografiske faktorer som ser ut til å ha størst påvirkning på sosial tillit. Reflekter over om resultatene samsvarer med det du forventet, og hva dette kan indikere om hvordan sosial tillit er relatert til demografiske faktorer.
+
+{{< pagebreak >}}
+
+# Oppgave 4: Bygg modeller for å forklare sosial tillit
+
+#### Del 1: Bygging og begrunnelse av modeller
+
+Utvikle to ulike modeller for å forklare sosial tillit ved å velge variabler som kan være relevante for å forklare variasjonen i sosial tillit. Du står fritt til å bruke demografiske variabler og andre relevante faktorer fra datasettet, men du skal **ikke** inkludere variablene for tillit til politikere eller tillit til media i modellene. For hver modell, forklar hvilke variabler du har valgt å inkludere og hvorfor du mener disse kan bidra til å forklare sosial tillit. Beskriv også hvorfor du har valgt å utelate enkelte variabler.
+
+#### Del 2: Sammenligning av modeller
+
+Etter at modellene er bygget, skal du vurdere hvilken modell som har best forklaringskraft. Gjennomfør en out-of-sample test for begge modellene ved å beregne MSE (Mean Squared Error) basert på prediksjoner utenfor treningsdatasettet. Sammenlign MSE-verdiene for de to modellene og vurder hvilken modell som gir den mest presise forklaringen av sosial tillit. Diskuter hvorfor én modell kan ha bedre forklaringskraft enn den andre, og reflekter over hvordan valg av variabler påvirker modellens nøyaktighet.
